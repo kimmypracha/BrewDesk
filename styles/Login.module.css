@@ -1,0 +1,32 @@
+.container{
+  border-radius: 15px;
+  display: flex;
+  width: 450px;
+  flex-direction: column;
+  box-shadow: 5px 10px 10px #98694f;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.logo{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #66462f;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #66462f;
+}
+
+.field{
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+}
+
+#login{
+  padding:5px;
+}
