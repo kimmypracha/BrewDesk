@@ -30,3 +30,23 @@
 #login{
   padding:5px;
 }
+
+.option{
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  font-size: 18px;
+}
+
+.active{
+  background-color: #66462f;
+  color : white;
+  padding: 5px;
+}
+
+.inactive{
+  background-color:  #bd8669;
+  color : white;
+  cursor: pointer;
+  padding: 5px;
+}
