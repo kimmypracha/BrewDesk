@@ -1,0 +1,44 @@
+.page{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+}
+.header{
+    width: 100%;
+    padding: 10px;
+    background-color : red;
+    min-height: 100px;
+}
+
+.content{
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.contcol{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.calendar{
+    width: 100%;
+    background-color: blue;
+    min-height: 200px;
+}
+
+.suggestion{
+    width: 100%;
+    background-color: yellow;
+    min-height: 300px;
+}
+
+.todo{
+    width: 100%;
+    background-color: green;
+    min-height: 500px;
+}
