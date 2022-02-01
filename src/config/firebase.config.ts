@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
-import {initializeApp, getApps, getApp} from "firebase/app";
+import {initializeApp, getApps, getApp, FirebaseApp} from "firebase/app";
 import {getAnalytics} from 'firebase/analytics';
+import { Main } from "next/document";
+import { async } from "@firebase/util";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -15,15 +17,23 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
-
-// Initialize Firebase
-if(!getApps().length){
-  initializeApp(firebaseConfig);
-  if(typeof window != "undefined"){
-    if("measurementId" in firebaseConfig){
-      getAnalytics();
-    }
-  }
-}else{
-  getApp();
+export const completeInit = async (app: FirebaseApp) => {
+  console.log("Initialized app " + app);
+  console.log("App is " + getApp());
+  console.log("Lenght is " + getApps().length);
 }
+// Initialize Firebase
+export default async function main(){
+
+  if(!getApps().length){
+    const app = await initializeApp(firebaseConfig)
+    if(typeof window != "undefined"){
+      if("measurementId" in firebaseConfig){
+        getAnalytics();
+      }
+    }
+    console.log("Length is " + getApps().length);
+    completeInit(app);
+  }
+};
+main();
