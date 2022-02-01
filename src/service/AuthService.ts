@@ -1,6 +1,10 @@
 import {getAuth, signInWithPopup, GoogleAuthProvider, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth';
+import {getApp, getApps} from 'firebase/app';
 import { async } from '@firebase/util';
+import '../config/firebase.config';
+
 const auth = getAuth();
+
 export const AuthService = {
     loginWithGoogle : async () => {
         const provider = new GoogleAuthProvider();
