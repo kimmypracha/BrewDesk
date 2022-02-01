@@ -1,20 +1,32 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, ReactNode } from "react";
 import { AuthService } from "../service/AuthService";
 import { UserCredential } from "@firebase/auth";
 
 
 interface IAuth {
-    loginWithGoogle: (()=> Promise<void>) | null, 
-    login: ((username:string, password:string) => Promise<void>) | null,
-    signup: ((username:string, password:string) => Promise<void>) | null,
-    logout: (() => Promise<void>) | null
+    userState : UserCredential | undefined | null, 
+    errorState : string | null,
+    loginWithGoogle: (()=> Promise<void>), 
+    login: ((username:string, password:string) => Promise<void>),
+    signup: ((username:string, password:string) => Promise<void>),
+    logout: (() => Promise<void>)
 }
-const AuthContext = createContext<IAuth>({loginWithGoogle: null, login: null, signup: null, logout: null});
+interface AuthProp {
+    children : ReactNode
+}
+const AuthContext = createContext<IAuth>({
+    userState: null,
+    errorState: null, 
+    loginWithGoogle: async () => {},
+    login: async () => {}, 
+    signup: async () => {}, 
+    logout: async () => {}
+});
 export default function useAuth(){
     return useContext(AuthContext);
 }
 
-export function AuthProvider() {
+export function AuthProvider(props: AuthProp) {
     
     const [userState, setUser] = useState<UserCredential | undefined | null>();
     const [errorState, setError] = useState(null);
@@ -41,7 +53,7 @@ export function AuthProvider() {
         setUser(null);
     }
 
-    const value = {loginWithGoogle, login, signup, logout};
+    const value = {userState, errorState, loginWithGoogle, login, signup, logout};
 
-    return (<AuthContext.Provider value={value}/>);
+    return (<AuthContext.Provider value={value} {...props}/>);
 }
