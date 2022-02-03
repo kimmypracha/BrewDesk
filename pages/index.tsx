@@ -6,6 +6,7 @@ import { useState, useContext } from 'react'
 import useAuth from '../src/hook/auth'
 import { Router, useRouter } from 'next/router'
 import {useFormik} from 'formik';
+import {FC} from 'react';
 const LoginComponent: FC = (props) => {
   const {login, userState, errorState} = useAuth();
   const formik = useFormik({
