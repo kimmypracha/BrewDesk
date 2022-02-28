@@ -7,6 +7,9 @@
   align-items: center;
   justify-content: space-around;
   padding: 10px;
+  margin: auto auto;
+  margin-top: 20%;
+  transform: translateY(-50%);
 }
 
 .logo{
@@ -25,6 +28,7 @@
   display: flex;
   padding: 5px;
   justify-content: center;
+
 }
 
 #login{
@@ -33,7 +37,7 @@
 
 .option{
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   font-size: 18px;
 }
@@ -41,12 +45,33 @@
 .active{
   background-color: #66462f;
   color : white;
-  padding: 5px;
+  padding: 5px 10px;
 }
 
 .inactive{
   background-color:  #bd8669;
   color : white;
   cursor: pointer;
-  padding: 5px;
+  padding: 5px 10px;
+}
+
+.inactive:hover{
+  background-color:  #e6a17d;
+}
+
+.submitbtn{
+  background-color: #66462f;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 18px;
+}
+
+.submitbtn:hover{
+  background-color: #8d6142;
+}
+
+.form{
+  transition: opacity 2.0s ease-in;
 }
