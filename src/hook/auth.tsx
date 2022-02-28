@@ -34,16 +34,22 @@ export function AuthProvider(props: AuthProp) {
     const loginWithGoogle = async () => {
         const {error, user} = await AuthService.loginWithGoogle();
         setUser(user);
+        window.localStorage.setItem('user', user? user.user.email || '' : '');
+        window.localStorage.setItem('uid', user? user.user.uid : '');
         setError(error);
     }
     const login = async (username:string, password:string) => {
         const {error, user} = await AuthService.login(username, password);
+        window.localStorage.setItem('user', user? user.user.email || '' : '');
+        window.localStorage.setItem('uid', user? user.user.uid : '');
         setUser(user);
         setError(error);
     }
 
     const signup = async (username:string, password:string) => {
         const {error, user} = await AuthService.signup(username, password);
+        window.localStorage.setItem('user', user? user.user.email || '' : '');
+        window.localStorage.setItem('uid', user? user.user.uid : '');
         setUser(user);
         setError(error);
     }
@@ -51,6 +57,8 @@ export function AuthProvider(props: AuthProp) {
     const logout = async () => {
         await AuthService.logout();
         setUser(null);
+        window.localStorage.removeItem('user');
+        window.localStorage.removeItem('uid');
     }
 
     const value = {userState, errorState, loginWithGoogle, login, signup, logout};
