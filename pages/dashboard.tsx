@@ -165,6 +165,16 @@ export default function Dashboard() {
     const [username, setUser] = useState('');
     const [uid, setUid] = useState('');
     const [score, setScore] = useState(0);
+    const [edited, setEdited] = useState(0);
+    const formik = useFormik({
+        initialValues: {
+            usrname: ''
+        },
+        onSubmit: ({usrname}) => {
+            setUser(usrname);
+            setEdited(0);
+        }
+    })
     useEffect(()=>{
         console.log("Load Dashboard");
         const email = window.localStorage.getItem('user') || '';
@@ -182,7 +192,15 @@ export default function Dashboard() {
 
     return (<div className={styles.page}>
         <div className={styles.header}>
-            Name : {username}
+            BrewDesk  {edited? (<form onSubmit={formik.handleSubmit}>
+                <input type="text" 
+                                   name="usrname"
+                                   value={formik.values.usrname} 
+                                   onChange={formik.handleChange}
+                                   onBlur={formik.handleBlur}/>
+                <button type="submit">Change</button>
+                </form>)
+             :(<div>{username} <button onClick={()=>setEdited(1)}> Edit</button></div>)}
             <button className={styles.logoutbtn} onClick={handleLogout}> Log out </button>
         </div>
         <div className={styles.content}>
