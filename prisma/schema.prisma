@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id Int @default(autoincrement()) @id
+  uid String 
+  task String
+  difficulty Int
+  duration Int
+  type Int
+  date DateTime @default(now())
+  completed Boolean @default(false)
+}
+
+model User{
+  uid String @unique
+  username String @default("anonymous")
+  score Float @default(0)
+  highscore Float @default(0)
+}
