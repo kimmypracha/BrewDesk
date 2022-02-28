@@ -63,22 +63,22 @@
 
 .inputbar{
     padding : 5px;
-    border-radius: 15px;
     justify-content: space-around;
+    background : linear-gradient(#5f3b21,#382313);
 }
 
 .todolist{
-    padding : 5px;
+    padding: 0px;
 }
 
 .listbox{
+    margin: 5px;
     padding: 5px 10px;
     border-radius: 15px;
     background-color: white;
     margin-bottom: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 0.5fr 0.5fr;
     font-size: 18px;
 }
 
@@ -87,21 +87,17 @@
 }
 .nametodo{
     padding: 2px;
-    flex-grow: 4;
 }
 
 .difflist{
     padding: 2px;
-    flex-grow: 2;
 }
 .timelist{
     padding: 2px;
-    flex-grow: 1.5;
 }
 
 .endtd,.rmtd{
     padding:2px;
-    flex-grow: 1;
     border-radius: 15px;
 }
 
@@ -168,11 +164,20 @@
     padding:5px;
     width: 30px;
     color: white;
-    background-color: #382313;
+    background-color: #8a552d;
     border:none;
     border-radius: 10px;
 }
 
 .addbtn:hover{
-    background-color: #83522c;
+    background-color: rgb(190, 120, 66);
+}
+
+.gridheader{
+    width: 100%;
+    background: rgba(114, 63, 24, 0.698);
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    padding: 5px 10px;
+    color: white;
 }

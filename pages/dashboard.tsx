@@ -135,6 +135,12 @@ function TodoComponent(props: ReactNode){
             </form>
         </div>
         <div className={styles.todolist}>
+            <div className={styles.gridheader}>
+                <div>Task</div>
+                <div>Difficulty</div>
+                <div> Duration </div>
+                <div> Action </div>
+            </div>
             {tdlist&&tdlist.map(({id, name,difficulty,duration})=>{
                 return (<div className={styles.listbox}>
                     <div className={styles.nametodo}>
