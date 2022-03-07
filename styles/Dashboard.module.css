@@ -181,3 +181,14 @@
     padding: 5px 10px;
     color: white;
 }
+.editbtn{
+    background-image: url('../public/edit.png');
+    background-size: 20px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    width: 20px;
+    height:20px;
+    background-color: transparent;
+
+}

@@ -200,7 +200,7 @@ export default function Dashboard() {
                                    onBlur={formik.handleBlur}/>
                 <button type="submit">Change</button>
                 </form>)
-             :(<div>{username} <button onClick={()=>setEdited(1)}> Edit</button></div>)}
+             :(<div>{username} <button className={styles.editbtn} onClick={()=>setEdited(1)}></button></div>)}
             <button className={styles.logoutbtn} onClick={handleLogout}> Log out </button>
         </div>
         <div className={styles.content}>
